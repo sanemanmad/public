@@ -176,13 +176,19 @@
     margin:0 0 .35rem;
   }
 
-  .job-titles{
+  .role-block{margin-bottom:2.5rem}
+  .role-block:last-child{margin-bottom:0}
+
+  .role-title{
     font-family:var(--mono);
     font-size:.8rem;
-    color:var(--ink-soft);
-    margin:0 0 1.5rem;
+    letter-spacing:.04em;
+    color:var(--ink);
+    margin:0 0 1.25rem;
+    padding:.45rem 0;
+    border-top:1px solid var(--ink);
+    border-bottom:1px solid var(--rule);
   }
-  .job-titles span{display:block}
 
   .theme{
     padding:0 0 1.5rem;
@@ -215,17 +221,6 @@
   .prior li{display:grid;grid-template-columns:14rem 1fr;gap:1rem}
   .prior b{font-weight:600}
   .prior span{color:var(--ink-soft);font-size:.95rem}
-
-  /* ---- simple lists ---- */
-  .plain{list-style:none;margin:0;padding:0;display:grid;gap:.55rem}
-  .plain li{padding-left:1.1rem;position:relative}
-  .plain li::before{
-    content:"";
-    position:absolute;
-    left:0;top:.7em;
-    width:.45rem;height:1px;
-    background:var(--accent);
-  }
 
   .certs{list-style:none;margin:0;padding:0;display:grid;gap:.75rem}
   .certs li{
@@ -313,7 +308,7 @@
       owning governance, tooling, and developer self-service across all 6+ organizations, 30,000 repositories, and
       15,000 developers on the platform. Builds CI/CD frameworks and the custom
       GitHub Apps behind enterprise developer workflows, enforces enterprise-wide security-as-code, and scales infrastructure handling
-      200M+ daily calls. Holder of a U.S. patent in behavior analytics and data exfiltration prevention.
+      200M+ daily calls. Co-inventor of a U.S. patent in behavior analytics and data exfiltration prevention.
     </p>
     <nav class="actions" aria-label="Contact">
       <a class="btn btn-primary" href="https://www.linkedin.com/in/mhodgdon85" rel="me noopener" target="_blank">
@@ -374,66 +369,91 @@
 
       <article class="job">
         <h3 class="job-org">PayPal, Scottsdale, AZ</h3>
-        <p class="job-titles">
-          <span>Staff Software Engineer · 2020 – Present</span>
-          <span>Information Security Engineer · 2016 – 2020</span>
-        </p>
-        <div class="theme">
-          <h4 class="theme-name">Platform governance and developer experience</h4>
-          <ul class="theme-points">
-            <li>Defined the branch-protection eligibility framework, exception and approval workflow, and self-service
-                tool adopted across the company.</li>
-            <li>Set and enforced GitHub-wide policy: org creation, service-account approval, mandatory dual-approval
-                merges, and production branch protection.</li>
-            <li>Integrated policy-as-code with Terraform, Ansible, and Puppet to satisfy global regulatory
-                requirements without slowing developer velocity.</li>
-            <li>Authored the CI/CD standards and golden paths that standardized deployment patterns for the broader
-                engineering organization.</li>
-          </ul>
+
+        <div class="role-block">
+          <p class="role-title">Staff Software Engineer · 2020 – Present</p>
+
+          <div class="theme">
+            <h4 class="theme-name">Platform governance and developer experience</h4>
+            <ul class="theme-points">
+              <li>Defined the branch-protection eligibility framework, exception and approval workflow, and
+                  self-service tool adopted across the company.</li>
+              <li>Set and enforced GitHub-wide policy: org creation, service-account approval, mandatory
+                  dual-approval merges, and production branch protection.</li>
+              <li>Integrated policy-as-code with Terraform, Ansible, and Puppet to satisfy global regulatory
+                  requirements without slowing developer velocity.</li>
+              <li>Authored the CI/CD standards and golden paths that standardized deployment patterns for the
+                  broader engineering organization.</li>
+            </ul>
+          </div>
+
+          <div class="theme">
+            <h4 class="theme-name">Migration to GitHub Enterprise Cloud</h4>
+            <ul class="theme-points">
+              <li>Built the GitHub/Jira/ServiceNow orchestration behind PayPal's migration from GitHub Enterprise
+                  Server to GitHub Enterprise Cloud, cutting per-repo migration time from hours to minutes.</li>
+              <li>Sustained throughput above 1,800 repos/day against a 30,000-repo backlog, completing the move and
+                  allowing PayPal to decommission self-hosted GitHub Enterprise Server entirely.</li>
+              <li>Traced recurring CI/CD failures across multiple teams to an undetected single point of failure in
+                  GitHub's webhook path and implemented redundant architecture.</li>
+              <li>Audited three months and 3,500+ requests against the AI support bot serving a CTO-tracked,
+                  company-wide migration program, isolating and fixing the ~15% of volume it was answering from
+                  contradictory documentation.</li>
+            </ul>
+          </div>
+
+          <div class="theme">
+            <h4 class="theme-name">GitHub Apps and developer self-service</h4>
+            <ul class="theme-points">
+              <li>Built and operate the catalog of custom GitHub Apps behind PayPal's developer self-service:
+                  repository access requests, branch-protection bypass exemptions, webhook creation, and GitHub App
+                  installation and approval.</li>
+              <li>Instrumented pull-request traceability and code-quality reporting across the enterprise, covering
+                  branch-protection coverage, Jira references enforced in commit messages and PR titles, and Harness
+                  build and deploy quality signals surfaced back to owning teams.</li>
+              <li>Automated repository migration through deployment-driven workflows, with the reporting used to
+                  track program progress.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="theme">
-          <h4 class="theme-name">Migration to GitHub Enterprise Cloud</h4>
-          <ul class="theme-points">
-            <li>Built the GitHub/Jira/ServiceNow orchestration behind PayPal's migration from GitHub Enterprise
-                Server to GitHub Enterprise Cloud, cutting per-repo migration time from hours to minutes.</li>
-            <li>Sustained throughput above 1,800 repos/day against a 30,000-repo backlog, completing the move and
-                allowing PayPal to decommission self-hosted GitHub Enterprise Server entirely.</li>
-            <li>Traced recurring CI/CD failures across multiple teams to an undetected single point of failure in
-                GitHub's webhook path and implemented redundant architecture.</li>
-            <li>Audited three months and 3,500+ requests against the AI support bot serving a CTO-tracked,
-                company-wide migration program, isolating and fixing the ~15% of volume it was answering from
-                contradictory documentation.</li>
-          </ul>
+        <div class="role-block">
+          <p class="role-title">Information Security Engineer · 2016 – 2020</p>
+
+          <div class="theme">
+            <h4 class="theme-name">Edge and API security</h4>
+            <ul class="theme-points">
+              <li>Deployed custom Signal Sciences WAF containers managed with Terraform, covering 90%+ of enterprise
+                  ingress traffic.</li>
+              <li>Scaled Traceable's API-security coverage to 200M+ daily calls within 72 hours, keeping real-time
+                  detection ahead of production traffic growth rather than leaving a coverage gap.</li>
+            </ul>
+          </div>
+
+          <div class="theme">
+            <h4 class="theme-name">Fleet telemetry and vulnerability management</h4>
+            <ul class="theme-points">
+              <li>Engineered osquery and Uptycs telemetry across 300k+ endpoints, 100k+ containers, and 1M+ images,
+                  with reporting pipelines built on Presto and SQL.</li>
+              <li>Migrated the Aqua vulnerability-management platform from legacy VMs to GKE to SaaS, extending
+                  automated scanning visibility to 1M+ container images.</li>
+            </ul>
+          </div>
+
+          <div class="theme">
+            <h4 class="theme-name">Secure infrastructure delivery</h4>
+            <ul class="theme-points">
+              <li>Automated provisioning for the security platform fleet with Terraform, Ansible, and Puppet,
+                  applying security-by-design defaults across cloud and on-prem environments so controls shipped
+                  with the infrastructure instead of being retrofitted onto it.</li>
+              <li>Automated JFrog Artifactory HA upgrades with Terraform and Helm, cutting a multi-sprint manual
+                  migration down to under four hours.</li>
+              <li>Responded to platform security incidents including an insider-threat data-exfiltration case and
+                  critical secret-exposure remediations, coordinating directly with InfoSec and GitHub Support.</li>
+            </ul>
+          </div>
         </div>
 
-        <div class="theme">
-          <h4 class="theme-name">GitHub Apps and developer self-service</h4>
-          <ul class="theme-points">
-            <li>Built and operate the catalog of custom GitHub Apps behind PayPal's developer self-service:
-                repository access requests, branch-protection bypass exemptions, webhook creation, and GitHub App
-                installation and approval.</li>
-            <li>Instrumented pull-request traceability and code-quality reporting across the enterprise, covering
-                branch-protection coverage, Jira references enforced in commit messages and PR titles, and Harness
-                build and deploy quality signals surfaced back to owning teams.</li>
-            <li>Automated repository migration through deployment-driven workflows, with the reporting used to track
-                program progress.</li>
-          </ul>
-        </div>
-
-        <div class="theme">
-          <h4 class="theme-name">Security engineering at scale</h4>
-          <ul class="theme-points">
-            <li>Scaled Traceable's API-security coverage to 200M+ daily calls within 72 hours, keeping real-time
-                detection ahead of production traffic growth rather than leaving a coverage gap.</li>
-            <li>Migrated the Aqua vulnerability-management platform off legacy VMs onto GKE/SaaS, extending automated
-                scanning visibility to 1M+ container images.</li>
-            <li>Automated JFrog Artifactory HA upgrades with Terraform and Helm, cutting a multi-sprint manual
-                migration down to under four hours.</li>
-            <li>Responded to platform security incidents on GitHub, including an insider-threat data-exfiltration case
-                and critical secret-exposure remediations, coordinating directly with InfoSec and GitHub Support.</li>
-          </ul>
-        </div>
       </article>
 
     </div>
@@ -455,7 +475,8 @@
     <div class="section-body">
       <p>
         <span class="patent-id">U.S. Patent 11,818,219 · Granted November 2023</span>
-        Session management and behavior analytics to prevent data exfiltration.
+        Co-inventor. Session management and behavior analytics to prevent data exfiltration, implemented as a
+        bastion gateway built on open-source tooling and running in PayPal's production security stack.
       </p>
     </div>
   </section>
@@ -481,7 +502,7 @@
         <li>
           <span class="cert-mark">
             <img src="assets/LPI_Icon-Print_Yellow.svg" width="160" height="160" loading="lazy"
-                 alt="LPI LPIC+++ badge">            
+                 alt="Linux Professional Institute certification badge">
           </span>
           LPIC-1, LPIC-2, LPIC-3 (Linux Professional Institute)
         </li>
